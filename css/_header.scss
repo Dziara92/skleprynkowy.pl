@@ -1,0 +1,345 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  background-image: url("/img/header2.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .wrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    nav {
+      width: 30%;
+      display: flex;
+      align-items: center;
+
+      .basket {
+        margin: 0 10px 0 60px;
+        font-size: 16px;
+        color: #000000;
+        cursor: pointer;
+        transition: color 0.4s;
+
+        &.active {
+          color: #c50909;
+        }
+      }
+      p {
+        margin: 0;
+        font-family: "roboto";
+        font-size: 20px;
+      }
+    }
+    .logo {
+      width: 70%;
+
+      img {
+        margin: 20px 0 0 20px;
+        width: 60%;
+        height: 60%;
+      }
+    }
+    .shop-basket {
+      position: absolute;
+      top: 60%;
+      left: 6%;
+      width: 80%;
+      min-height: 300px;
+      background-color: #fff;
+      display: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+        rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+      font-family: "roboto";
+      padding: 20px;
+      p {
+        font-weight: 700;
+      }
+
+      .small-Container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 50px auto;
+        width: 90%;
+        font-size: 16px;
+        grid-gap: 20px 100px;
+        align-items: center;
+
+        .clear-busket {
+          p {
+            font-size: 25px;
+            margin: 0;
+            padding: 20px;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .quantity {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center;
+        align-items: center;
+        border: 1px solid #dfdfdf;
+        .subtract-quantity {
+          border-right: 1px solid #dfdfdf;
+          padding: 10px 10px;
+          width: 25%;
+          cursor: pointer;
+        }
+        .add-quantity {
+          border-left: 1px solid #dfdfdf;
+          padding: 10px;
+          width: 25%;
+          cursor: pointer;
+        }
+      }
+      .summary {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 100px;
+        margin: 40px auto 0 auto;
+        padding: 5px 20px;
+        border: 1px solid #dfdfdf;
+
+        h3 {
+          grid-column: span 2;
+          padding-bottom: 10px;
+          margin-top: 10px;
+          border-bottom: 1px solid #dfdfdf;
+          font-weight: 500;
+        }
+      }
+
+      .pay-delivery {
+        font-family: "roboto";
+        font-size: 16px;
+        font-weight: 700;
+        color: #ffff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        background-color: #c50909;
+        padding: 15px 40px;
+        margin: 20px auto;
+        display: block;
+        transition: background-color 0.4s;
+        &:hover {
+          background-color: #e60303;
+        }
+      }
+
+      &.active {
+        display: block;
+      }
+      .fa-xmark {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .item-in-basket {
+        width: 80%;
+        height: 80%;
+      }
+    }
+  }
+
+  .welcome__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px auto 0 auto;
+    padding: 0 15px;
+    width: 80%;
+
+    h2 {
+      text-align: center;
+      font-size: 25px;
+      text-transform: uppercase;
+      font-family: "Playfair Display,  Sans-serif";
+      margin: 10px 0;
+    }
+    p {
+      text-align: center;
+      font-family: "roboto";
+      font-weight: 700;
+      font-size: 14px;
+      color: #5a5a5a;
+      line-height: 14px;
+
+      span {
+        text-decoration: underline;
+      }
+    }
+    .buttons {
+      display: inline-block;
+      margin: 30px 0;
+
+      .add-item,
+      .see-more {
+        font-family: "roboto";
+        font-size: 16px;
+        font-weight: 700;
+        color: #ffff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+      }
+      .add-item {
+        background-color: #c50909;
+        padding: 15px 25px;
+        margin-right: 10px;
+      }
+      .see-more {
+        background-color: #000000;
+        padding: 15px 40px;
+        color: #fff;
+        transition: all 0.4s;
+
+        &:hover {
+          background-color: #fff;
+          color: #000000;
+        }
+      }
+    }
+  }
+  .img-book {
+    width: 100%;
+    padding: 0 20px;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 85%;
+    }
+  }
+}
+
+@include breakpoints(laptop) {
+  header {
+    margin-bottom: 75px;
+    .wrapper {
+      margin: 0 auto;
+      .logo {
+        width: 60%;
+
+        img {
+          margin: 20px 0 0 40px;
+          width: 40%;
+          height: 70%;
+        }
+      }
+      nav {
+        width: 20%;
+        .basket {
+          margin: 0 10px 0 150px;
+        }
+      }
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+
+      .welcome__head {
+        margin: 0 0 0 40px;
+        padding: 0 20px;
+        width: 80%;
+        align-self: flex-end;
+
+        .buttons {
+          .add-item {
+            padding: 12px 30px;
+          }
+          .see-more {
+            padding: 12px 45px;
+          }
+        }
+      }
+      .img-book {
+        width: 80%;
+
+        img {
+          display: block;
+          margin: 0 auto;
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+@include breakpoints(desktop) {
+  header {
+    height: 650px;
+    .wrapper {
+      width: 1224px;
+      height: 100px;
+      margin: 0 auto;
+      justify-content: space-between;
+
+      nav {
+        width: 20%;
+        margin-top: 50px;
+        .basket {
+          margin: 0 10px 0 150px;
+        }
+      }
+
+      .logo {
+        width: 40%;
+
+        img {
+          width: 300px;
+          height: 125px;
+        }
+      }
+    }
+    .grid-container {
+      width: 1224px;
+      min-height: 550px;
+      margin: 0 auto;
+      .welcome__head {
+        width: 100%;
+        align-items: flex-start;
+        h2 {
+          margin: 0 0;
+          font-size: 49px;
+        }
+        p {
+          font-size: 20px;
+        }
+        .buttons {
+          display: inline-block;
+          margin: 30px 0;
+
+          .add-item {
+            padding: 15px 50px;
+            margin-right: 10px;
+          }
+          .see-more {
+            padding: 15px 55px;
+          }
+        }
+      }
+      .img-book {
+        height: 550px;
+        width: 100%;
+
+        img {
+          height: 500px;
+          width: 65%;
+        }
+      }
+    }
+  }
+}

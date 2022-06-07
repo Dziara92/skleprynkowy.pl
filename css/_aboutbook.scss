@@ -1,0 +1,103 @@
+section.about-book {
+  background-color: #f4f4f4;
+  padding: 10px 0;
+  .aboutbook {
+    padding: 0 0 30px 0;
+    h2 {
+      font-family: "roboto";
+      color: #c50909;
+      text-align: center;
+      margin: 40px 0 20px 0;
+    }
+    ul {
+      padding: 0 30px;
+      margin-bottom: 30px;
+
+      li {
+        font-size: 14px;
+        font-family: "roboto";
+        line-height: 24.6px;
+        color: #7a7a7a;
+
+        span {
+          font-weight: 700;
+        }
+      }
+    }
+    h3 {
+      font-family: "roboto";
+      font-size: 20px;
+      color: #3a3a3a;
+      font-weight: 300;
+      text-align: center;
+      line-height: 28px;
+      padding: 0 15px;
+    }
+
+    .add-item {
+      display: block;
+      margin: 0 auto;
+      font-family: "roboto";
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffff;
+      border: none;
+      border-radius: 30px;
+      background-color: #c50909;
+      padding: 15px 40px;
+      cursor: pointer;
+    }
+  }
+}
+
+@include breakpoints(laptop) {
+  section.about-book {
+    .aboutbook {
+      margin: 30px 0 0 0;
+
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+        width: 80%;
+        margin: 40px auto 50px auto;
+
+        :nth-child(1) {
+          grid-column: 1;
+        }
+        :nth-child(2) {
+          grid-column: 2;
+        }
+      }
+      h3 {
+        font-size: 18px;
+      }
+      .add-item {
+        padding: 15px 55px;
+      }
+    }
+  }
+}
+
+@include breakpoints(desktop) {
+  section.about-book {
+    padding: 20px 0;
+    .aboutbook {
+      width: 1100px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 30px;
+      }
+
+      ul {
+        li {
+          font-size: 15px;
+          font-family: "roboto";
+          line-height: 24.6px;
+          color: #7a7a7a;
+        }
+      }
+    }
+  }
+}

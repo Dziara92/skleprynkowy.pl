@@ -1,0 +1,19 @@
+.arrow-up {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+
+  border-radius: 10%;
+  background-color: #c50909;
+  text-align: center;
+  color: #fff;
+  .fa-angle-up {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  &.active {
+    display: block;
+  }
+}

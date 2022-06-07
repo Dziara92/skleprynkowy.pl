@@ -1,0 +1,793 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-image: url("/img/header2.png");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+header .wrapper nav {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .wrapper nav .basket {
+  margin: 0 10px 0 60px;
+  font-size: 16px;
+  color: #000000;
+  cursor: pointer;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+header .wrapper nav .basket.active {
+  color: #c50909;
+}
+
+header .wrapper nav p {
+  margin: 0;
+  font-family: "roboto";
+  font-size: 20px;
+}
+
+header .wrapper .logo {
+  width: 70%;
+}
+
+header .wrapper .logo img {
+  margin: 20px 0 0 20px;
+  width: 60%;
+  height: 60%;
+}
+
+header .wrapper .shop-basket {
+  position: absolute;
+  top: 60%;
+  left: 6%;
+  width: 80%;
+  min-height: 300px;
+  background-color: #fff;
+  display: none;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  font-family: "roboto";
+  padding: 20px;
+}
+
+header .wrapper .shop-basket p {
+  font-weight: 700;
+}
+
+header .wrapper .shop-basket .small-Container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  margin: 50px auto;
+  width: 90%;
+  font-size: 16px;
+  grid-gap: 20px 100px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .wrapper .shop-basket .small-Container .clear-busket p {
+  font-size: 25px;
+  margin: 0;
+  padding: 20px;
+  cursor: pointer;
+}
+
+header .wrapper .shop-basket .quantity {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #dfdfdf;
+}
+
+header .wrapper .shop-basket .quantity .subtract-quantity {
+  border-right: 1px solid #dfdfdf;
+  padding: 10px 10px;
+  width: 25%;
+  cursor: pointer;
+}
+
+header .wrapper .shop-basket .quantity .add-quantity {
+  border-left: 1px solid #dfdfdf;
+  padding: 10px;
+  width: 25%;
+  cursor: pointer;
+}
+
+header .wrapper .shop-basket .summary {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 100px;
+          column-gap: 100px;
+  margin: 40px auto 0 auto;
+  padding: 5px 20px;
+  border: 1px solid #dfdfdf;
+}
+
+header .wrapper .shop-basket .summary h3 {
+  grid-column: span 2;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid #dfdfdf;
+  font-weight: 500;
+}
+
+header .wrapper .shop-basket .pay-delivery {
+  font-family: "roboto";
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #c50909;
+  padding: 15px 40px;
+  margin: 20px auto;
+  display: block;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+}
+
+header .wrapper .shop-basket .pay-delivery:hover {
+  background-color: #e60303;
+}
+
+header .wrapper .shop-basket.active {
+  display: block;
+}
+
+header .wrapper .shop-basket .fa-xmark {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+header .wrapper .shop-basket .item-in-basket {
+  width: 80%;
+  height: 80%;
+}
+
+header .welcome__head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 30px auto 0 auto;
+  padding: 0 15px;
+  width: 80%;
+}
+
+header .welcome__head h2 {
+  text-align: center;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Playfair Display,  Sans-serif";
+  margin: 10px 0;
+}
+
+header .welcome__head p {
+  text-align: center;
+  font-family: "roboto";
+  font-weight: 700;
+  font-size: 14px;
+  color: #5a5a5a;
+  line-height: 14px;
+}
+
+header .welcome__head p span {
+  text-decoration: underline;
+}
+
+header .welcome__head .buttons {
+  display: inline-block;
+  margin: 30px 0;
+}
+
+header .welcome__head .buttons .add-item,
+header .welcome__head .buttons .see-more {
+  font-family: "roboto";
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+header .welcome__head .buttons .add-item {
+  background-color: #c50909;
+  padding: 15px 25px;
+  margin-right: 10px;
+}
+
+header .welcome__head .buttons .see-more {
+  background-color: #000000;
+  padding: 15px 40px;
+  color: #fff;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+header .welcome__head .buttons .see-more:hover {
+  background-color: #fff;
+  color: #000000;
+}
+
+header .img-book {
+  width: 100%;
+  padding: 0 20px;
+}
+
+header .img-book img {
+  display: block;
+  margin: 0 auto;
+  width: 85%;
+}
+
+@media screen and (min-width: 768px) {
+  header {
+    margin-bottom: 75px;
+  }
+  header .wrapper {
+    margin: 0 auto;
+  }
+  header .wrapper .logo {
+    width: 60%;
+  }
+  header .wrapper .logo img {
+    margin: 20px 0 0 40px;
+    width: 40%;
+    height: 70%;
+  }
+  header .wrapper nav {
+    width: 20%;
+  }
+  header .wrapper nav .basket {
+    margin: 0 10px 0 150px;
+  }
+  header .grid-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .grid-container .welcome__head {
+    margin: 0 0 0 40px;
+    padding: 0 20px;
+    width: 80%;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+  }
+  header .grid-container .welcome__head .buttons .add-item {
+    padding: 12px 30px;
+  }
+  header .grid-container .welcome__head .buttons .see-more {
+    padding: 12px 45px;
+  }
+  header .grid-container .img-book {
+    width: 80%;
+  }
+  header .grid-container .img-book img {
+    display: block;
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  header {
+    height: 650px;
+  }
+  header .wrapper {
+    width: 1224px;
+    height: 100px;
+    margin: 0 auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  header .wrapper nav {
+    width: 20%;
+    margin-top: 50px;
+  }
+  header .wrapper nav .basket {
+    margin: 0 10px 0 150px;
+  }
+  header .wrapper .logo {
+    width: 40%;
+  }
+  header .wrapper .logo img {
+    width: 300px;
+    height: 125px;
+  }
+  header .grid-container {
+    width: 1224px;
+    min-height: 550px;
+    margin: 0 auto;
+  }
+  header .grid-container .welcome__head {
+    width: 100%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  header .grid-container .welcome__head h2 {
+    margin: 0 0;
+    font-size: 49px;
+  }
+  header .grid-container .welcome__head p {
+    font-size: 20px;
+  }
+  header .grid-container .welcome__head .buttons {
+    display: inline-block;
+    margin: 30px 0;
+  }
+  header .grid-container .welcome__head .buttons .add-item {
+    padding: 15px 50px;
+    margin-right: 10px;
+  }
+  header .grid-container .welcome__head .buttons .see-more {
+    padding: 15px 55px;
+  }
+  header .grid-container .img-book {
+    height: 550px;
+    width: 100%;
+  }
+  header .grid-container .img-book img {
+    height: 500px;
+    width: 65%;
+  }
+}
+
+.preorder {
+  margin: 40px 0;
+}
+
+.preorder h2 {
+  font-family: "roboto";
+  text-transform: uppercase;
+  color: #c50909;
+  margin: 0 auto;
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+.preorder p {
+  font-family: "roboto";
+  padding: 0 30px;
+  color: #7a7a7a;
+  font-size: 15px;
+  line-height: 24.6px;
+  text-align: justify;
+  margin-bottom: 30px;
+}
+
+.preorder p span {
+  font-weight: 700;
+}
+
+.preorder h3 {
+  font-family: "roboto";
+  font-size: 20px;
+  color: #3a3a3a;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  line-height: 28px;
+  padding: 0 25px;
+}
+
+@media screen and (min-width: 1224px) {
+  .preorder {
+    width: 1100px;
+    margin: 0 auto 100px auto;
+  }
+  .preorder h2 {
+    font-size: 30px;
+  }
+  .preorder h3 {
+    font-size: 25px;
+    line-height: 35px;
+  }
+}
+
+section.about-book {
+  background-color: #f4f4f4;
+  padding: 10px 0;
+}
+
+section.about-book .aboutbook {
+  padding: 0 0 30px 0;
+}
+
+section.about-book .aboutbook h2 {
+  font-family: "roboto";
+  color: #c50909;
+  text-align: center;
+  margin: 40px 0 20px 0;
+}
+
+section.about-book .aboutbook ul {
+  padding: 0 30px;
+  margin-bottom: 30px;
+}
+
+section.about-book .aboutbook ul li {
+  font-size: 14px;
+  font-family: "roboto";
+  line-height: 24.6px;
+  color: #7a7a7a;
+}
+
+section.about-book .aboutbook ul li span {
+  font-weight: 700;
+}
+
+section.about-book .aboutbook h3 {
+  font-family: "roboto";
+  font-size: 20px;
+  color: #3a3a3a;
+  font-weight: 300;
+  text-align: center;
+  line-height: 28px;
+  padding: 0 15px;
+}
+
+section.about-book .aboutbook .add-item {
+  display: block;
+  margin: 0 auto;
+  font-family: "roboto";
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffff;
+  border: none;
+  border-radius: 30px;
+  background-color: #c50909;
+  padding: 15px 40px;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  section.about-book .aboutbook {
+    margin: 30px 0 0 0;
+  }
+  section.about-book .aboutbook ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -webkit-column-gap: 30px;
+            column-gap: 30px;
+    width: 80%;
+    margin: 40px auto 50px auto;
+  }
+  section.about-book .aboutbook ul :nth-child(1) {
+    -ms-grid-column: 1;
+    grid-column: 1;
+  }
+  section.about-book .aboutbook ul :nth-child(2) {
+    -ms-grid-column: 2;
+    grid-column: 2;
+  }
+  section.about-book .aboutbook h3 {
+    font-size: 18px;
+  }
+  section.about-book .aboutbook .add-item {
+    padding: 15px 55px;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  section.about-book {
+    padding: 20px 0;
+  }
+  section.about-book .aboutbook {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  section.about-book .aboutbook h2 {
+    font-size: 30px;
+  }
+  section.about-book .aboutbook ul li {
+    font-size: 15px;
+    font-family: "roboto";
+    line-height: 24.6px;
+    color: #7a7a7a;
+  }
+}
+
+.offers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  justify-items: center;
+  margin: 50px 0 0 0;
+}
+
+.offers h2 {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  font-family: "roboto";
+  font-size: 30px;
+  color: #c50909;
+  margin: 0 auto;
+  text-align: center;
+  margin: 0 0 40px 0;
+}
+
+.offers .pakiet {
+  width: 80%;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.offers .pakiet p {
+  font-family: "roboto";
+  font-size: 18px;
+  font-weight: 700;
+  color: #54595f;
+}
+
+.offers .pakiet h5 {
+  font-family: "Playfair Display";
+  font-weight: 700;
+  font-size: 20px;
+  color: #c50909;
+  margin: 30px 0 30px 0;
+}
+
+.offers .pakiet .add-to-basket {
+  font-family: "roboto";
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffff;
+  border: none;
+  border-radius: 30px;
+  background-color: #000000;
+  padding: 15px 35px;
+  -webkit-transition: background-color 0.4s;
+  transition: background-color 0.4s;
+  cursor: pointer;
+}
+
+.offers .pakiet .add-to-basket:hover {
+  background-color: #c50909;
+}
+
+.offers .pakiet img {
+  width: 70%;
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .offers {
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .offers h2 {
+    font-size: 39px;
+    grid-column: span 3;
+  }
+  .offers :nth-child(3) img {
+    width: 72%;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  .offers {
+    width: 1100px;
+    margin: 50px auto 40px auto;
+  }
+  .offers .pakiet {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .offers .pakiet p {
+    font-size: 20px;
+  }
+  .offers .pakiet h5 {
+    font-size: 25px;
+  }
+  .offers .pakiet .add-to-basket {
+    font-size: 16px;
+  }
+}
+
+section.about-person {
+  background-image: url("/img/bg-AboutMe.jpg");
+  background-repeat: no-repeat;
+  background-position: 25%;
+  background-size: cover;
+}
+
+section.about-person .overlay {
+  background-color: rgba(0, 0, 0, 0.842);
+  width: 100%;
+  height: 100%;
+  padding: 60px 0 30px 0;
+}
+
+section.about-person .overlay .aboutme {
+  text-align: center;
+}
+
+section.about-person .overlay .aboutme span img {
+  width: 30%;
+  border: 3px solid #b18a11;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+section.about-person .overlay .aboutme h2,
+section.about-person .overlay .aboutme h4 {
+  font-size: 25px;
+  font-family: "Roboto";
+  margin: 0;
+}
+
+section.about-person .overlay .aboutme h2 {
+  margin-top: 10px;
+  color: #ffffff;
+}
+
+section.about-person .overlay .aboutme h4 {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #d3d3d3;
+}
+
+section.about-person .overlay .aboutme p {
+  font-family: "roboto";
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 24.6px;
+  padding: 0 30px;
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  section.about-person {
+    background-position: 100%;
+  }
+  section.about-person .overlay .aboutme span img {
+    width: 17%;
+  }
+}
+
+@media screen and (min-width: 1224px) {
+  section.about-person .overlay {
+    padding: 60px 0;
+  }
+  section.about-person .overlay .aboutme {
+    width: 1100px;
+    margin: 0 auto;
+  }
+  section.about-person .overlay .aboutme span img {
+    width: 150px;
+    border: 3px solid #b18a11;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  section.about-person .overlay .aboutme p {
+    font-size: 15px;
+  }
+}
+
+footer ul {
+  font-family: "roboto";
+  font-size: 15px;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+footer ul li {
+  margin: 10px 5px 0 5px;
+  display: inline-block;
+  line-height: 24.6px;
+  color: #c50909;
+}
+
+footer p {
+  font-size: 13px;
+  color: #7a7a7a;
+  font-family: "roboto";
+  text-align: center;
+}
+
+@media screen and (min-width: 1224px) {
+  footer ul {
+    font-size: 16px;
+  }
+  footer p {
+    font-size: 15px;
+  }
+}
+
+.arrow-up {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  border-radius: 10%;
+  background-color: #c50909;
+  text-align: center;
+  color: #fff;
+}
+
+.arrow-up .fa-angle-up {
+  font-size: 15px;
+  padding: 10px;
+}
+
+.arrow-up.active {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

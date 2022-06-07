@@ -1,0 +1,32 @@
+footer {
+  ul {
+    font-family: "roboto";
+    font-size: 15px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    li {
+      margin: 10px 5px 0 5px;
+      display: inline-block;
+      line-height: 24.6px;
+      color: #c50909;
+    }
+  }
+  p {
+    font-size: 13px;
+    color: #7a7a7a;
+    font-family: "roboto";
+    text-align: center;
+  }
+}
+
+@include breakpoints(desktop) {
+  footer {
+    ul {
+      font-size: 16px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
+}
