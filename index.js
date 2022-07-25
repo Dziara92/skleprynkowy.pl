@@ -37,12 +37,12 @@ const btnAddItem = document.querySelectorAll(".add-to-basket");
 const basketIcon = document.querySelector(".basket");
 let imgItems = document.querySelectorAll(".pakiet img");
 
-let number = 0;
-
 btnAddItem.forEach((btn, i) => {
   btn.addEventListener("click", () => {
+    let number = 0;
     numberItemBasket.innerHTML = ++number;
     imgAdd(i, numberItemBasket); // function add img to popup
+
     if (basketIcon.classList.contains("active")) {
       return;
     } else {

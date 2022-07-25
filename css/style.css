@@ -100,6 +100,15 @@ header .wrapper .shop-basket .small-Container {
           align-items: center;
 }
 
+header .wrapper .shop-basket .small-Container .img-item-added img {
+  width: 100%;
+  height: auto;
+}
+
+header .wrapper .shop-basket .small-Container .clear-busket {
+  text-align: center;
+}
+
 header .wrapper .shop-basket .small-Container .clear-busket p {
   font-size: 25px;
   margin: 0;
@@ -151,6 +160,10 @@ header .wrapper .shop-basket .summary h3 {
   margin-top: 10px;
   border-bottom: 1px solid #dfdfdf;
   font-weight: 500;
+}
+
+header .wrapper .shop-basket .summary .summary-price {
+  text-align: center;
 }
 
 header .wrapper .shop-basket .pay-delivery {
@@ -293,6 +306,38 @@ header .img-book img {
   }
   header .wrapper nav .basket {
     margin: 0 10px 0 150px;
+  }
+  header .wrapper .shop-basket {
+    top: 40%;
+  }
+  header .wrapper .shop-basket .small-Container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    margin: 50px auto;
+    width: 70%;
+    font-size: 16px;
+    grid-gap: 20px 100px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header .wrapper .shop-basket .small-Container .img-item-added img {
+    width: 50%;
+    height: auto;
+  }
+  header .wrapper .shop-basket .small-Container .clear-busket {
+    text-align: center;
+  }
+  header .wrapper .shop-basket .small-Container .clear-busket p {
+    font-size: 25px;
+    margin: 0;
+    padding: 20px;
+    cursor: pointer;
+  }
+  header .wrapper .shop-basket .summary {
+    width: 70%;
   }
   header .grid-container {
     display: -ms-grid;

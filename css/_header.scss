@@ -72,8 +72,15 @@ header {
         font-size: 16px;
         grid-gap: 20px 100px;
         align-items: center;
+        .img-item-added {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
 
         .clear-busket {
+          text-align: center;
           p {
             font-size: 25px;
             margin: 0;
@@ -116,6 +123,9 @@ header {
           margin-top: 10px;
           border-bottom: 1px solid #dfdfdf;
           font-weight: 500;
+        }
+        .summary-price {
+          text-align: center;
         }
       }
 
@@ -243,6 +253,38 @@ header {
         width: 20%;
         .basket {
           margin: 0 10px 0 150px;
+        }
+      }
+      .shop-basket {
+        top: 40%;
+
+        .small-Container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          margin: 50px auto;
+          width: 70%;
+          font-size: 16px;
+          grid-gap: 20px 100px;
+          align-items: center;
+          .img-item-added {
+            img {
+              width: 50%;
+              height: auto;
+            }
+          }
+
+          .clear-busket {
+            text-align: center;
+            p {
+              font-size: 25px;
+              margin: 0;
+              padding: 20px;
+              cursor: pointer;
+            }
+          }
+        }
+        .summary {
+          width: 70%;
         }
       }
     }
