@@ -35,124 +35,140 @@ btnBuy.addEventListener("click", function () {
 let numberItemBasket = document.querySelector("nav p");
 const btnAddItem = document.querySelectorAll(".add-to-basket");
 const basketIcon = document.querySelector(".basket");
-let imgItems = document.querySelectorAll(".pakiet img");
 
-btnAddItem.forEach((btn, i) => {
-  btn.addEventListener("click", () => {
-    let number = 0;
-    numberItemBasket.innerHTML = ++number;
-    imgAdd(i, numberItemBasket); // function add img to popup
+const items = [
+  {
+    itemName: "Książka",
+    img: "img/offer-img1.png",
+    price: "49.99",
+    quantity: 1,
+    id: 1,
+  },
+  {
+    itemName: "Książka + kubek TŚJN",
+    img: "img/offer-img2.png",
+    price: "69.99",
+    quantity: 1,
+    id: 2,
+  },
+  {
+    itemName: "Książka + kubek TŚJN + podróże VR",
+    img: "img/offer-img3.png",
+    quantity: 1,
+    price: "149.99",
+    id: 3,
+  },
+];
 
-    if (basketIcon.classList.contains("active")) {
-      return;
+let busket = [];
+btnAddItem.forEach((btnItem) => {
+  btnItem.addEventListener("click", () => {
+    const item = items.find((item) => item.id.toString() === btnItem.id);
+    let search = busket.find((itemElement) => itemElement.id === item.id);
+    if (search === undefined) {
+      busket.push(item);
     } else {
-      basketIcon.classList.add("active");
+      search.quantity++;
     }
+
+    addActiveClassToIcon();
+    displayItemInPopup();
   });
 });
 
-// Delite Item in busket
-const deliteBtn = document.querySelector(".clear-busket p");
-
-const deliteItemFromBusket = (
-  summaryPrice,
-  clonedImgItem,
-  titleItem,
-  quantity,
-  itemPrice,
-  number
-) => {
-  clonedImgItem.parentElement.removeChild(clonedImgItem);
-  summaryPrice.textContent = 0;
-  titleItem.textContent = "Wybierz produkt";
-  itemPrice.textContent = 0;
-  number.innerHTML = 0;
-  quantity.innerHTML = 0;
-  basketIcon.classList.remove("active");
+//Add class .active to basket Icon
+const addActiveClassToIcon = () => {
+  if (busket.length > 0) {
+    basketIcon.classList.add("active");
+  }
 };
 
-function imgAdd(i, number) {
-  //add img to busket
-  const imgItemAdded = document.querySelector(".img-item-added");
-  let imgItem = imgItems[i];
-  let clonedImgItem = imgItem.cloneNode();
-  clonedImgItem.classList.add("item-in-basket");
-  imgItemAdded.appendChild(clonedImgItem);
-
-  //add price to busket
-  const itemPrice = document.querySelector(".item-price");
-  const priceItems = document.querySelectorAll(".price");
-  let priceItem = priceItems[i].textContent;
-  itemPrice.textContent = priceItem;
-
-  //add tittle to busket
-  const titleItem = document.querySelector(".title-item");
-  const titleItems = document.querySelectorAll(".title-items");
-  let titleItemBusket = titleItems[i].textContent;
-  titleItem.textContent = titleItemBusket;
-
-  //summary-price
-  let summaryPrice = document.querySelector(".summary-price");
-  summaryPrice.textContent = itemPrice.textContent;
-  if (imgItemAdded.children.length >= 2) {
-    summaryPrice.textContent =
-      Number(itemPrice.textContent) * Number(number.textContent);
+const removeActiveClassToIcon = () => {
+  if (busket.length === 0) {
+    basketIcon.classList.remove("active");
   }
+};
 
-  //quantity item in busket
-  let quantity = document.querySelector(".quantity-number");
-  const subtractQuantity = document.querySelector(".subtract-quantity");
-  const addQuantity = document.querySelector(".add-quantity");
-  quantity.innerHTML = number.innerHTML;
-  console.log(quantity.innerHTML);
+//Display item in popup
+const popup = document.querySelector(".shop-basket");
 
-  addQuantity.addEventListener("click", () => {
-    if (imgItemAdded.children.length > 0) {
-      console.log(quantity.textContent);
-      let incriseNumber = quantity.textContent;
-      quantity.textContent = ++incriseNumber;
-      number.textContent = quantity.textContent;
-      let addItemSummaryPrice = Number(itemPrice.textContent) * incriseNumber;
-      summaryPrice.textContent = addItemSummaryPrice;
-    } else {
-      return;
-    }
+const displayItemInPopup = () => {
+  const itemInBusket = busket.map((item) => {
+    return `<i class="fa-solid fa-xmark"></i>
+    <div class="small-Container">
+        <div class="img-item-added"> <img src=${item.img} alt="zdjęcie produktu" ></div>
+        <div class="clear-busket" onclick="delateItemFromBusket(${item.id})">
+            <p id=${item.id}>x</p>
+        </div>
+
+        <p>Produkt</p>
+        <p class="title-item">${item.itemName}</p>
+        <p>Cena</p>
+        <p class="item-price">${item.price}</p>
+        <p>Ilość</p>
+        <div class="quantity">
+            <div class="subtract-quantity" onclick="decrement(${item.id})">-</div>
+            <div class="quantity-number">${item.quantity}</div>
+            <div class="add-quantity" onclick="increment(${item.id})">+</div>
+        </div>
+      </div>`;
   });
 
-  subtractQuantity.addEventListener("click", () => {
-    if (quantity.textContent == 1 || quantity.textContent == 0) {
-      return;
-    } else {
-      let reduceNumber = quantity.textContent;
-      quantity.textContent = --reduceNumber;
-      number.textContent = quantity.textContent;
-      let subtractItemSummaryPrice =
-        Number(summaryPrice.textContent) - Number(itemPrice.textContent);
-      summaryPrice.textContent = subtractItemSummaryPrice.toFixed(2);
-    }
-  });
-
-  //addEventListener delite item
-  deliteBtn.addEventListener("click", () => {
-    deliteItemFromBusket(
-      summaryPrice,
-      clonedImgItem,
-      titleItem,
-      quantity,
-      itemPrice,
-      number
-    );
-  });
-}
-
-// Popup basket
-basketIcon.addEventListener("click", () => {
-  const popup = document.querySelector(".shop-basket");
+  popup.innerHTML = itemInBusket;
+  if (busket.length === 0) {
+    popup.classList.remove("active");
+    basketIcon.classList.remove("active");
+    return;
+  }
+  createSumemaratyDiv();
+  // Close popup
   const closeIcon = document.querySelector(".fa-xmark ");
-  if (basketIcon.classList.contains("active")) {
-    popup.classList.toggle("active");
-  } else return;
   closeIcon.addEventListener("click", function () {
     popup.classList.remove("active");
   });
+};
+
+//Crate Element
+const createSumemaratyDiv = () => {
+  const totalPrice = busket
+    .reduce((acc, item) => acc + item.price * item.quantity, 0)
+    .toFixed(2);
+
+  const summararyDiv = document.createElement("div");
+  summararyDiv.classList.add("summary");
+  summararyDiv.innerHTML = `<h3>Podsumowanie koszyka </h3>
+
+  <p>Kwota</p>
+  <p class="summary-price">${totalPrice}</p>
+  <button class="pay-delivery">Dostawa i płatność</button>`;
+  popup.appendChild(summararyDiv);
+};
+
+// Popup basket
+basketIcon.addEventListener("click", () => {
+  popup.classList.toggle("active");
+  if (busket.length === 0) {
+    popup.classList.remove("active");
+  }
 });
+
+const increment = (id) => {
+  let searchElement = busket.find((itemElement) => itemElement.id === id);
+  searchElement.quantity++;
+  displayItemInPopup();
+};
+
+const decrement = (id) => {
+  let searchElement = busket.find((itemElement) => itemElement.id === id);
+  if (searchElement.quantity <= 1) {
+    return;
+  }
+  searchElement.quantity--;
+  displayItemInPopup();
+};
+
+const delateItemFromBusket = (id) => {
+  let newBusket = busket.filter((item) => item.id !== id);
+  busket = newBusket;
+  displayItemInPopup();
+};
